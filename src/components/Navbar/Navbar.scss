@@ -33,11 +33,14 @@
     padding: 4px;
     border: 1px solid $white;
     transition: $transition;
+    color: $white;
 
     &:hover {
         background-color: transparent;
-        color: $white;
+        color: $midGrey;
+        border: 1px solid $midGrey;
     }
 } 
 }
 }
+

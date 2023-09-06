@@ -1,10 +1,14 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import { RiNewspaperFill } from "react-icons/ri";
 import { FaBars } from "react-icons/fa";
 import search_icon from "../../assets/images/search_icon.png";
+import { useSidebarContext } from "../../context/sidebarContext";
 
 const Navbar = () => {
+   const { openSidebar } = useSidebarContext();
+
   return (
   <nav className="navbar bg-darkGrey flex align-center">
  <div className="container w-100">
@@ -37,7 +41,7 @@ const Navbar = () => {
     <button type="button" className="navbar-search-btn">
         <img src= {search_icon} alt="Search icon" />
     </button>
-<button type="button" className="sidebar-show-btn bg-white flex align-center justify-center">
+<button type="button" className="sidebar-show-btn bg-white flex align-center justify-center" onClick={() => openSidebar()}>
  <FaBars size = {21} />
 </button>
 </div>

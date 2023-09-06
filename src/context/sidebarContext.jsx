@@ -8,8 +8,7 @@ const initialState = {
 
 const SidebarContext = React.createContext();
 
-// eslint-disable-next-line react/prop-types
-export const SidebarProvider = ({children}) => {
+export const SidebarProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const openSidebar = () => {
@@ -31,7 +30,6 @@ export const SidebarProvider = ({children}) => {
     )
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useSidebarContext = () => {
     return useContext(SidebarContext);
 }
