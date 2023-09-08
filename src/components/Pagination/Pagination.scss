@@ -5,13 +5,13 @@
         width: 38px;
         height: 38px;
         margin: 0 4px;
-        border: 1px solid $blue;
+        border: 1px solid $purple;
         border-radius: 2px;
         transition: $transition;
 
         &:hover {
             background-color: $white;
-            color: $blue;
+            color: $purple;
         }
     }
 }

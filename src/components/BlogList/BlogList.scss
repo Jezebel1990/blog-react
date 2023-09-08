@@ -1,0 +1,61 @@
+@import "../../App.scss";
+
+.blog-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    
+
+}
+
+    .blog-item {
+        background-color: $white;
+        box-shadow: rgba(100, 100, 111, 0.15) 2px 7px 10px 2px;
+        border-radius: 6px;
+        padding: 36px;
+        transition: $transition;
+        width: calc(93.33% - 32px); 
+        
+
+        &-title{
+            margin-bottom: 8px;
+            line-height: 1.35;
+            text-transform: capitalize;
+        }
+
+       &-btn{
+        .see-more-btn{
+            display: inline-block;
+            margin-top: 18px;
+            padding: 4px 12px;
+            background-color: $purple;
+            border: 1px solid $purple;
+            color: $white;
+            border-radius: 4px;
+            &:hover{
+                transform: scale(0.95);
+                transition: $transition;
+                border-color: $white;
+
+            }
+    }
+}
+&:hover {
+    background-color: $darkBlue;
+    color: $white;
+    box-shadow: rgba(130, 0, 221, 0.15) 0px 7px 10px 0px;
+
+            .blog-item-btn {
+                .see-more-btn {
+                    border-color: $blue;
+                    background-color: $blue;
+   }        
+}
+
+}
+    }
+
+
+.p-first-letter-uppercase::first-letter {
+    text-transform: uppercase;
+  }

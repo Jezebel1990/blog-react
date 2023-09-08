@@ -1,9 +1,6 @@
 import React from 'react';
 import "./Pagination.scss";
 
-
-import React from 'react'
-
 const Pagination = ({noOfBlogs, paginateHandler}) => {
     let noOfPaginateItems = Math.ceil(noOfBlogs / 6);
   return (
@@ -11,7 +8,7 @@ const Pagination = ({noOfBlogs, paginateHandler}) => {
         { 
             [...Array(noOfPaginateItems)].map((item, idx) => {
                 return (
-                    <button type = 'button' className='paginate-item font-rubik bg-blue flex align-center justify-center text-white' onClick={() => paginateHandler(idx + 1)} key = {idx}>{idx + 1}</button>
+                    <button type = 'button' className='paginate-item font-rubik bg-purple flex align-center justify-center text-white' onClick={() => paginateHandler(idx + 1)} key = {idx}>{idx + 1}</button>
                 )
             })
         }
