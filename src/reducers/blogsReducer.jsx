@@ -19,7 +19,7 @@ const blogsReducer = (state, action) => {
             }
         case GET_BLOGS_SUCCESS:
             return { 
-                ...state, blogsLoading: false, blogs: action.payload, tempBlogs: action.payload 
+                ...state, blogsLoading: false, blogs: action.payload
             }
         case GET_BLOGS_ERROR:
             return { 

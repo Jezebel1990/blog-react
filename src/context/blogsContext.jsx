@@ -20,7 +20,6 @@ const initialState = {
     blogsLoading: false,
     blogsError: false,
     blogs: [],
-    tempBlogs: [],
     singleBlogLoading: false,
     singleBlogError: false,
     singleBlog: [],
