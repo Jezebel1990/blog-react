@@ -29,7 +29,7 @@ const Navbar = () => {
         </li>
 
         <li className="nav-item">
-            <Link to="/blog" className="nav-link text-white fw-4 fs-19">Blog</Link>
+            <Link to="/blog/1" className="nav-link text-white fw-4 fs-19">Blog</Link>
         </li>
         <li className="nav-item">
             <Link to="/about" className="nav-link text-white fw-4 fs-19">Sobre nós</Link>

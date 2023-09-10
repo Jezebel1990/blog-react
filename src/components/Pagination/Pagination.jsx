@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import './Pagination.scss';
 
@@ -18,7 +19,14 @@ const Pagination = ({ noOfBlogs, paginateHandler }) => {
     return () => mediaQuery.removeListener(handleResize);
   }, []);
 
-  let noOfPaginateItems = Math.ceil(noOfBlogs / itemsPerPage);
+  let noOfPaginateItems = Math.ceil(noOfBlogs / itemsPerPage) 
+
+if (noOfBlogs < currentPage * itemsPerPage){
+  noOfPaginateItems += 11  
+  
+  
+}
+
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
@@ -28,15 +36,17 @@ const Pagination = ({ noOfBlogs, paginateHandler }) => {
   };
 
   const handleNextPage = () => {
-   
+ 
     if (currentPage < noOfPaginateItems) {
       setCurrentPage(currentPage + 1);
       paginateHandler(currentPage + 1);
     }
   };
 
+   // Determine o índice inicial e final para renderizar os botões de página
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, noOfBlogs);
+
 
   return (
     <div className="paginate-items flex align-center justify-center">
@@ -51,8 +61,13 @@ const Pagination = ({ noOfBlogs, paginateHandler }) => {
           {'<'}
         </button>
       )}
-
-      {Array.from({ length: noOfPaginateItems}).map((_, idx) => {
+      
+    
+      {
+      Array.from({ length: noOfPaginateItems}).map((_, idx) => {
+          idx += 5;
+       
+          console.log(`Índice: ${idx}`);
         return (
           <button
             type="button"

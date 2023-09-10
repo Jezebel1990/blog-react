@@ -25,7 +25,7 @@ const Sidebar = () => {
       <Link to = "/" className='nav-link text-white fw-4 fs-18'>Home</Link>
     </li>
     <li className='nav-item'>
-      <Link to = "/blog" className='nav-link text-white fw-4 fs-18'>Blog</Link>
+      <Link to = "/blog/1" className='nav-link text-white fw-4 fs-18'>Blog</Link>
     </li>
     <li className='nav-item'>
       <Link to = "/about" className='nav-link text-white fw-4 fs-18'>Sobre nós</Link>

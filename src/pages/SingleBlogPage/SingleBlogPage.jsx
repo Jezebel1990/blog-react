@@ -16,8 +16,8 @@ const SingleBlogPage = () => {
 
   useEffect(() => {
     fetchSingleBlog(id);
-    if (singleBlog.id) fetchSingleUser(singleBlog.id);
-    if (singleBlog.id) fetchCommentsByPost(singleBlog.id);
+    if(singleBlog.id) fetchSingleUser(singleBlog.id);
+    if(singleBlog.id) fetchCommentsByPost(singleBlog.id);
   }, [singleBlog.id, singleBlog.id, id]);
 
   return (
@@ -26,7 +26,6 @@ const SingleBlogPage = () => {
         background: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url(${banner_image}) center/cover no-repeat` 
       }}>
         <div className='container'>
-
         <div style={{ height: '100px' }}></div>
           <div className='header-content text-center flex align-center justify-center flex-column text-white'>
             <Title title="Detalhes do Blog"  color={`#fff`}  />
