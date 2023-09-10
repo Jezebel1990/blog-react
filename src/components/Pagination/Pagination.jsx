@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './Pagination.scss';
 
-const Pagination = ({ noOfBlogs, paginateHandler, currentPage }) => {
+const Pagination = ({ noOfBlogs, paginateHandler }) => {  
   const [isMobile, setIsMobile] = useState(
     window.matchMedia('(max-width: 768px)').matches
   );
+
+  const [currentPage, setCurrentPage] = useState(1);
+  
   const itemsPerPage = isMobile ? 18 : 6;
-  const [visibleItems, setVisibleItems] = useState(itemsPerPage);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)');
@@ -16,23 +18,25 @@ const Pagination = ({ noOfBlogs, paginateHandler, currentPage }) => {
     return () => mediaQuery.removeListener(handleResize);
   }, []);
 
-  const noOfPaginateItems = Math.ceil(noOfBlogs / itemsPerPage);
+  let noOfPaginateItems = Math.ceil(noOfBlogs / itemsPerPage);
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
       paginateHandler(currentPage - 1);
     }
   };
 
   const handleNextPage = () => {
+   
     if (currentPage < noOfPaginateItems) {
+      setCurrentPage(currentPage + 1);
       paginateHandler(currentPage + 1);
-      setVisibleItems(itemsPerPage); 
     }
   };
 
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = Math.min(startIndex + visibleItems, noOfBlogs);
+  const endIndex = Math.min(startIndex + itemsPerPage, noOfBlogs);
 
   return (
     <div className="paginate-items flex align-center justify-center">
@@ -48,14 +52,17 @@ const Pagination = ({ noOfBlogs, paginateHandler, currentPage }) => {
         </button>
       )}
 
-      {Array.from({ length: noOfPaginateItems }).map((_, idx) => {
+      {Array.from({ length: noOfPaginateItems}).map((_, idx) => {
         return (
           <button
             type="button"
             className={`paginate-item font-rubik bg-purple flex align-center justify-center text-white ${
               currentPage === idx + 1 ? 'active' : ''
             }`}
-            onClick={() => paginateHandler(idx + 1)}
+            onClick={() => {
+              setCurrentPage(idx + 1);
+              paginateHandler(idx + 1);
+            }}
             key={idx}
           >
             {idx + 1}
@@ -66,7 +73,7 @@ const Pagination = ({ noOfBlogs, paginateHandler, currentPage }) => {
       {isMobile && (
         <button
           type="button"
-          className={`paginate-item font-rubik  text-purple flex align-center justify-center ${
+          className={`paginate-item font-rubik text-purple flex align-center justify-center ${
             currentPage === noOfPaginateItems ? 'active' : ''
           }`}
           onClick={handleNextPage}
@@ -79,3 +86,4 @@ const Pagination = ({ noOfBlogs, paginateHandler, currentPage }) => {
 };
 
 export default Pagination;
+
