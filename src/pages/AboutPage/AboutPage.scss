@@ -67,9 +67,17 @@ header-content-about {
 
     .aboutText{
         width: 50%;
+        @media screen and (max-width: 768px){
+            width: 100%;
+        
+    }
     }
     .aboutImage {
         width: 50%;
         text-align: right;
+        @media screen and (max-width: 768px){
+            display: none;
+        
+    }
     }
  }
