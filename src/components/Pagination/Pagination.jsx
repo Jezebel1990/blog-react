@@ -11,6 +11,10 @@ const Pagination = ({ noOfBlogs, paginateHandler }) => {
   
   const itemsPerPage = isMobile ? 18 : 6;
 
+  const [indexPage, setIndexPage] = useState(0);
+  const [currentlyPagesNumber, setCurrentlyPagesNumber] = useState(6);
+  const [isPrev, setIsPrev] = useState(false);
+
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)');
     const handleResize = () => setIsMobile(mediaQuery.matches);
@@ -19,34 +23,34 @@ const Pagination = ({ noOfBlogs, paginateHandler }) => {
     return () => mediaQuery.removeListener(handleResize);
   }, []);
 
-  let noOfPaginateItems = Math.ceil(noOfBlogs / itemsPerPage) 
-
-if (noOfBlogs < currentPage * itemsPerPage){
-  noOfPaginateItems += 11  
-  
-  
-}
-
+  const  noOfPaginateItems = Math.ceil(noOfBlogs / itemsPerPage);
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
+
+      if (currentPage <= (currentlyPagesNumber-5)) {
+        setCurrentlyPagesNumber(currentlyPagesNumber -6);
+        setIndexPage(currentlyPagesNumber-6);
+        setIsPrev(true);
+      } 
+
       setCurrentPage(currentPage - 1);
       paginateHandler(currentPage - 1);
     }
   };
 
   const handleNextPage = () => {
- 
-    if (currentPage < noOfPaginateItems) {
+      if (currentPage >= currentlyPagesNumber) {
+        setCurrentlyPagesNumber(currentlyPagesNumber +6);
+        setIndexPage(currentlyPagesNumber);
+        setIsPrev(false);
+      } 
       setCurrentPage(currentPage + 1);
       paginateHandler(currentPage + 1);
-    }
   };
 
-   // Determine o índice inicial e final para renderizar os botões de página
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, noOfBlogs);
-
 
   return (
     <div className="paginate-items flex align-center justify-center">
@@ -61,14 +65,10 @@ if (noOfBlogs < currentPage * itemsPerPage){
           {'<'}
         </button>
       )}
-      
-    
-      {
-      Array.from({ length: noOfPaginateItems}).map((_, idx) => {
-          idx += 5;
-       
-          console.log(`Índice: ${idx}`);
-        return (
+
+      {Array.from({ length: noOfPaginateItems}).map((_, idx) => {
+       idx  = isPrev ? idx+=(indexPage-6): idx+=indexPage ; 
+      return (
           <button
             type="button"
             className={`paginate-item font-rubik bg-purple flex align-center justify-center text-white ${
@@ -85,11 +85,11 @@ if (noOfBlogs < currentPage * itemsPerPage){
         );
       })}
 
-      {isMobile && (
+      {isMobile &&  (
         <button
           type="button"
           className={`paginate-item font-rubik text-purple flex align-center justify-center ${
-            currentPage === noOfPaginateItems ? 'active' : ''
+            currentPage === currentlyPagesNumber ? 'active' : ''
           }`}
           onClick={handleNextPage}
         >
