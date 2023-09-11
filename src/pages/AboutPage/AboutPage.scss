@@ -1,0 +1,75 @@
+@import "../../App.scss";
+
+header-content-about { 
+    min-height: 60vh;
+        @media screen and (max-width: 768px){
+            font-size: 28px;
+        
+    }
+}
+
+
+.header-about {
+    height: 400px;
+
+}
+
+
+ .header-title-about {
+    font-size: 36px;
+    max-width: 600px;
+    margin-top: 100px;
+ }
+
+
+
+ .aboutItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+ }
+
+ .aboutTitle {
+  margin: 10px;
+  padding: 5px;
+  width: 80%;
+  border-top: solid 1px $darkBlue;
+  border-bottom: solid 1px $darkBlue;
+  line-height: 19px;
+  font-weight: 600;
+ }
+
+ .aboutList {
+    list-style-type: none;
+    margin-bottom: 30px;
+ }
+
+ .aboutListItem {
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 50%;
+    margin-top: 15px;
+
+ }
+
+ .p-about {
+    padding: 20px;
+    margin-left: 80px;
+    margin-right: 90px;
+ }
+
+
+ .about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+
+    .aboutText{
+        width: 50%;
+    }
+    .aboutImage {
+        width: 50%;
+        text-align: right;
+    }
+ }

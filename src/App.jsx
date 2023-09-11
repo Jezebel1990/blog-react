@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, SingleBlog } from './pages';
+import { Home, SingleBlog, About } from './pages';
 import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route path = "/" element = {<Home />} />
         <Route path = "/blog/:id" element = {<SingleBlog />} />
+        <Route path="/about" element= {<About />} />
       </Routes>
     <Footer />
     </BrowserRouter>

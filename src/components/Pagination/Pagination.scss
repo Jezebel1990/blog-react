@@ -12,9 +12,10 @@
             background-color: $lightGrey;
             color: $purple;
         }
+
+        
     }
 }
-
 @media screen and (max-width: 768px) {
  .mobile-pagination {
     .paginate-item {
@@ -26,3 +27,4 @@
 .active{
     background-color: $darkBlue !important;
 }
+
