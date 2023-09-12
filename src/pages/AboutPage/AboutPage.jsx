@@ -16,7 +16,8 @@ const AboutPage = () => {
       <div className='container-about'> 
       <div style={{ height: '100px' }}></div>
       <div className='header-content-about text-center flex align-center justify-center flex-column text-white'>
-<h1 className='header-title-about ls-2'>Sobre Nós</h1>
+<h3 className='header-title-about ls-2'>Sobre Nós</h3>
+<div className='horz-line'> </div>
 </div>
       </div>
       </header>
