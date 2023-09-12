@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import './Pagination.scss';
 
+
 const Pagination = ({ noOfBlogs, paginateHandler }) => {  
   const [isMobile, setIsMobile] = useState(
     window.matchMedia('(max-width: 768px)').matches

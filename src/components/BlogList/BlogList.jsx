@@ -30,7 +30,7 @@ const BlogList = ({blogs}) => {
           })
         }
       </div>
-      <Pagination noOfBlogs={blogs.length} paginateHandler={paginateHandler} />
+      <Pagination noOfBlogs={blogs ? blogs.length : 0} paginateHandler={paginateHandler} />
     </>
   )
 }
