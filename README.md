@@ -22,8 +22,9 @@ Segue abaixo as instruções para a execução do projeto:
 - Abrir o projeto em uma IDE.
 - Instalar Node.JS v16.20.2
 - Instalar NPM.
+- Digitar o comando: 
 
-```Digitar o comando
+```
 npm run dev
 ```
 - Após isto,  será retornado um link.
@@ -37,3 +38,5 @@ npm run dev
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white" alt="JavaScript" />
 <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="Sass" />
 <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Visual Studio Code" />
+
+Feito com ♥ por [Jezebel Guedes](https://www.linkedin.com/in/jezebel-guedes/) 👋 Vamos nos contentar!
